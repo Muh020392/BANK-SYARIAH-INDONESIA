@@ -7,12 +7,15 @@ export async function createActivityAction (_, formData) {
     const amount = Number (formData.get("amount"));
     const category = formData.get("category")
 
+
+   
+
     await fetch("https://v1.appbackend.io/v1/rows/GCRGNKLHpQY0", {
         method: "POST",
         headers:{
            "content-Type": "application/json"
         },
-        body: JSON.stringify([{ title, amount, category}])
+        body: JSON.stringify([{ title, amount, category }])
     })
 
     revalidatePath ("/")
